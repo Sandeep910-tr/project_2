@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MachRent - Login/Register</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+</head>
+<body class="bg-gray-100">
+
+  <!-- 🔐 Login/Register Container -->
+  <div id="auth-screen" class="fixed inset-0 flex items-center justify-center bg-white z-50">
+    <div class="bg-gray-100 p-8 rounded-xl shadow-lg w-96">
+      <h2 class="text-2xl font-semibold text-center mb-6" id="auth-title">Login</h2>
+
+      <div id="username-field" class="mb-4">
+        <input id="username" type="text" placeholder="Username" class="w-full p-2 rounded border border-gray-300" />
+      </div>
+
+      <div id="password-field" class="mb-4">
+        <input id="password" type="password" placeholder="Password" class="w-full p-2 rounded border border-gray-300" />
+      </div>
+
+      <button id="submit-button" onclick="handleAuth()" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Login</button>
+
+      <p id="auth-error" class="text-red-500 text-sm mt-2 hidden">Error message</p>
+
+      <p class="mt-4 text-center text-sm text-gray-600">
+        <span id="toggle-msg">Don't have an account?</span>
+        <button onclick="toggleAuth()" class="text-blue-600 hover:underline ml-1" id="toggle-btn">Register</button>
+      </p>
+    </div>
+  </div>
+
+  <!-- ✅ App Content -->
+  <div id="app-content" class="hidden">
+    <nav class="bg-white shadow-md p-4 flex justify-between items-center">
+  <div class="flex items-center space-x-8">
+    <h1 class="text-xl font-bold text-blue-600">MachRent</h1>
+    <ul class="flex space-x-4 text-gray-700 text-sm font-medium">
+      <li><a href="home.html" class="hover:text-blue-600">Home</a></li>
+      <li><a href="aboutus.html" class="hover:text-blue-600">About Us</g></a></li>
+      <li><a href="contact.html" class="hover:text-blue-600">Contact</a></li>
+    </ul>
+  </div>
+  <button onclick="logout()" class="text-red-600 hover:underline">Logout</button>
+</nav>
+
+    <header class="text-center my-8">
+      <h2 class="text-3xl font-semibold">Welcome to MachRent</h2>
+      <p class="text-gray-500 mt-2">Secure machinery rental platform</p>
+    </header>
+
+    <!-- Machinery Cards -->
+<main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-6 pb-12">
+
+  <!-- Existing categories and equipment here... (keep what you already have) -->
+
+  <!-- Concrete & Material Handling -->
+  <div class="col-span-full text-xl font-bold text-gray-700 mt-8 mb-2">HEAVY MACHINERY</div>
+
+  <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
+    <img src="https://venusequipment.com/wp-content/uploads/2022/08/VEMUS-2.jpg" alt="Concrete Mixer" width="500" height="500">
+    <div class="p-4">
+      <h3 class="text-xl font-semibold">Concrete Mixer 350L</h3>
+      <p class="text-gray-600">Rate: ₹10000/day</p>
+      <button onclick="window.location.href='payment.html'" class="mt-4 w-full bg-blue-600 text-white py-2 rounded-xl hover:bg-blue-700">Rent Now</button>
+    </div>
+  </div>
+
+  <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
+    <img src="https://blog.rentmas.com/wp-content/uploads/2023/09/01_telehandler-1.jpg" alt="Wheelbarrow" width="500" height="500">
+    <div class="p-4">
+      <h3 class="text-xl font-semibold">Telehandler</h3>
+      <p class="text-gray-600">Rate: ₹10000/day</p>
+      <button onclick="window.location.href='payment.html'" class="mt-4 w-full bg-blue-600 text-white py-2 rounded-xl hover:bg-blue-700">Rent Now</button>
+    </div>
+  </div>
+
+  <!-- Site Mobility & Lifting -->
+  <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
+    <img src="https://www.morrow.com/wp-content/uploads/2021/10/introduction.jpg" alt="Tower Crane" width="500" height="500">
+    <div class="p-4">
+      <h3 class="text-xl font-semibold">Tower Crane XCMG TC6013</h3>
+      <p class="text-gray-600">Rate: ₹10000/day</p>
+      <button onclick="window.location.href='payment.html'" class="mt-4 w-full bg-blue-600 text-white py-2 rounded-xl hover:bg-blue-700">Rent Now</button>
+    </div>
+  </div>
+
+  <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
+    <img src="https://constructionhq.world/media/1643/vehicles-bulldozer-komatsu-d155axi-wallpaper-preview.jpg?anchor=center&mode=crop&width=950&height=480&rnd=132943187130000000" alt="Scaffolding" width="500" height="500">
+    <div class="p-4">
+      <h3 class="text-xl font-semibold">bulldozer</h3>
+      <p class="text-gray-600">Rate: ₹10000/day</p>
+      <button onclick="window.location.href='payment.html'" class="mt-4 w-full bg-blue-600 text-white py-2 rounded-xl hover:bg-blue-700">Rent Now</button>
+    </div>
+  </div>
+
+  <!-- Earthmoving Continued -->
+  <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
+    <img src="https://cdn.ironpla.net/i/18052/351/88c45493-c807-4299-816f-0b600cd0991a-nowater.jpg" alt="Crawler Loader" width="500" height="500">
+    <div class="p-4">
+      <h3 class="text-xl font-semibold">Crawler Loader Komatsu D65</h3>
+      <p class="text-gray-600">Rate: ₹10000/day</p>
+      <button onclick="window.location.href='payment.html'" class="mt-4 w-full bg-blue-600 text-white py-2 rounded-xl hover:bg-blue-700">Rent Now</button>
+    </div>
+  </div>
+
+  <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
+    <img src="https://www.shutterstock.com/image-photo/yellow-dump-truck-heavy-duty-600w-2468628563.jpg" alt="Dump Truck" width="500" height="500">
+    <div class="p-4">
+      <h3 class="text-xl font-semibold">Dump Truck Volvo A40G</h3>
+      <p class="text-gray-600">Rate: ₹10000/day</p>
+      <button onclick="window.location.href='payment.html'" class="mt-4 w-full bg-blue-600 text-white py-2 rounded-xl hover:bg-blue-700">Rent Now</button>
+    </div>
+  </div>
+
+
+  <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
+    <img src="https://imgs.search.brave.com/TNjaoTk_dHsPzdp2zSeKYXCO878k4toSitdB-_RhnsE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS1waG90/by9ydXN0eS1oZWF2/eS1tYWNoaW5lcnkt/YWdhaW5zdC1za3lf/MTA0ODk0NC0yNjcy/NzY2NC5qcGc_c2Vt/dD1haXNfY291bnRy/eV9ib29zdCZ3PTc0/MA" alt="Power Trowel" width="500" height="500">
+    <div class="p-4">
+      <h3 class="text-xl font-semibold">Plate Compactor Wacker Neuson</h3>
+      <p class="text-gray-600">Rate: ₹10000/day</p>
+      <button onclick="window.location.href='payment.html'" class="mt-4 w-full bg-blue-600 text-white py-2 rounded-xl hover:bg-blue-700">Rent Now</button>
+    </div>
+  </div>
+
+  <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
+    <img src="https://imgs.search.brave.com/UQNhFr0T4qyQwmQOJectTzcGobvhxSXxRQKY9PRYkgk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zN2Qy/LnNjZW5lNy5jb20v/aXMvaW1hZ2UvQ2F0/ZXJwaWxsYXIvQ00y/MDIzMDgwNy0yNDlk/My1mZjg3MA" alt="Concrete Grinder" width="500" height="500">
+    <div class="p-4">
+      <h3 class="text-xl font-semibold">wheel tractor scraper</h3>
+      <p class="text-gray-600">Rate: ₹10000/day</p>
+      <button onclick="window.location.href='payment.html'" class="mt-4 w-full bg-blue-600 text-white py-2 rounded-xl hover:bg-blue-700">Rent Now</button>
+    </div>
+  </div>
+
+  <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
+    <img src="https://d2j6dbq0eux0bg.cloudfront.net/images/13536176/904727130.jpg" alt="Jackhammer" width="500" height="500">
+    <div class="p-4">
+      <h3 class="text-xl font-semibold">Electric Jackhammer</h3>
+      <p class="text-gray-600">Rate: ₹10000/day</p>
+      <button onclick="window.location.href='payment.html'" class="mt-4 w-full bg-blue-600 text-white py-2 rounded-xl hover:bg-blue-700">Rent Now</button>
+    </div>
+  </div>
+
+  <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
+    <img src="https://en.xcmg.com/en-ap/upload/images/2020/08/13/177e539b9fa54c69800a7295ff9a8ee6.png" alt="Drilling Machine" width="500" height="500">
+    <div class="p-4">
+      <h3 class="text-xl font-semibold">Crane</h3>
+      <p class="text-gray-600">Rate: ₹10000/day</p>
+      <button onclick="window.location.href='payment.html'" class="mt-4 w-full bg-blue-600 text-white py-2 rounded-xl hover:bg-blue-700">Rent Now</button>
+    </div>
+  </div>
+
+  <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition">
+    <img src="https://www.obayashi.co.jp/en/tunnelworld/images/lesson/mountain/machine/img_tunnel_machine_1.png" alt="Portable Generator" width="500" height="500">
+    <div class="p-4">
+      <h3 class="text-xl font-semibold">Tunnel Driller</h3>
+      <p class="text-gray-600">Rate: ₹10000/day</p>
+      <button onclick="window.location.href='payment.html'" class="mt-4 w-full bg-blue-600 text-white py-2 rounded-xl hover:bg-blue-700">Rent Now</button>
+    </div>
+  </div>
+
+</main>
+
+  </div>
+
+  <!-- 🔐 Auth Logic -->
+  <script>
+    let isLogin = true;
+
+    function toggleAuth() {
+      isLogin = !isLogin;
+      document.getElementById("auth-title").innerText = isLogin ? "Login" : "Register";
+      document.getElementById("submit-button").innerText = isLogin ? "Login" : "Register";
+      document.getElementById("toggle-msg").innerText = isLogin ? "Don't have an account?" : "Already have an account?";
+      document.getElementById("toggle-btn").innerText = isLogin ? "Register" : "Login";
+      document.getElementById("auth-error").classList.add("hidden");
+    }
+
+    function handleAuth() {
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value;
+
+      if (!username || !password) {
+        showError("Please fill in all fields.");
+        return;
+      }
+
+      let users = JSON.parse(localStorage.getItem("users") || "{}");
+
+      if (isLogin) {
+        if (users[username] && users[username] === password) {
+          localStorage.setItem("loggedInUser", username);
+          loginSuccess();
+        } else {
+          showError("Invalid username or password.");
+        }
+      } else {
+        if (users[username]) {
+          showError("User already exists.");
+        } else {
+          users[username] = password;
+          localStorage.setItem("users", JSON.stringify(users));
+          localStorage.setItem("loggedInUser", username);
+          loginSuccess();
+        }
+      }
+    }
+
+    function showError(msg) {
+      const errorElem = document.getElementById("auth-error");
+      errorElem.innerText = msg;
+      errorElem.classList.remove("hidden");
+    }
+
+    function loginSuccess() {
+      document.getElementById("auth-screen").style.display = "none";
+      document.getElementById("app-content").classList.remove("hidden");
+    }
+
+    function logout() {
+      localStorage.removeItem("loggedInUser");
+      location.reload();
+    }
+
+    window.onload = function () {
+      const user = localStorage.getItem("loggedInUser");
+      if (user) {
+        loginSuccess();
+      }
+    };
+  </script>
+</body>
+</html>
